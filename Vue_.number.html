@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <!-- v-model.number 自动监测你在输入框中输出的值是否为 number ，是则输出 number 否则输出 string  -->
+        <input type="text" v-model.number="message">
+        <p>{{ typeof message }}</p>
+    </div>
+
+    <script src="https://cdn.bootcss.com/vue/2.4.2/vue.min.js"></script>
+    <script>
+        new Vue ({
+            el   : '#app',
+            data : {
+                message: 123
+            }
+        })
+    </script>
+</body>
+</html>

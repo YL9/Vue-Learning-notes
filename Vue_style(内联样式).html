@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <div id="app">
+        <div :style="{ color: Color, fontSize: fontSize + 'px' }">YoliLin</div>
+    </div> -->
+
+    <!-- <div id="app">
+        <div :style="styleObject">YoliLin</div>
+    </div> -->
+
+    <div id="app">
+        <div :style="[ basestyle,overstyle ]">YoliLin</div>
+    </div>
+
+    <script src="https://cdn.bootcss.com/vue/2.4.2/vue.min.js"></script>
+    <script>
+        new Vue ({
+            el   : '#app',
+            data : {
+                Color : 'green',
+                fontSize : 100,
+                styleObject : {
+                    color : 'red',
+                    fontSize : '100px'
+                },
+                basestyle : {
+                    color : 'blue',
+                    fontSize : '100px'
+                },
+                overstyle : {
+                    'font-weight' : 'bold'
+                }
+            }
+        })
+    </script>
+</body>
+</html>
