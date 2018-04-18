@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <div v-test:msg.a.b="message"></div>
+    </div>
+    
+    <script src="https://cdn.bootcss.com/vue/2.4.2/vue.min.js"></script>
+    <script>
+        Vue.directive('test',{
+            bind: function(el,binding,vnode){
+                let keys = []
+                for (let i in vnode){
+                    keys.push(i)
+                }
+                el.innerHTML = 
+                'name: ' + binding.name + '<br>' +                              // 指令名
+                'value: ' + binding.value + '<br>' +                            // 指令绑定的值
+                'expression: ' + binding.expression + '<br>' +                  // 绑定值的字符串形式
+                'argument: ' + binding.arg + '<br>' +                           // 传给指令的参数
+                'modifiers: ' + JSON.stringify(binding.modifiers) + '<br>' +    // 一个包含修饰符的对象
+                'vnode keys: ' + keys.join(', ')                                // Vue 编译生成的虚拟节点
+            }
+        })
+        new Vue ({
+            el   : '#app',
+            data : {
+                message : 'some text'
+            }
+        })
+    </script>
+</body>
+</html>
