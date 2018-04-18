@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <input type="text" v-focus>
+    </div>
+
+    <script src="https://cdn.bootcss.com/vue/2.4.2/vue.min.js"></script>
+    <script>
+        Vue.directive('focus', {
+            inserted: function (el) {
+                // 聚焦元素 -> 简要理解：在页面打开时，自动聚焦到input输入框，可以直接输入内容，而不需要再次用鼠标选中input输入框后输入
+                el.focus()
+            }
+        })
+
+        new Vue({
+            el: '#app'
+        })
+    </script>
+</body>
+
+</html>
